@@ -18,7 +18,7 @@ function App() {
     setImage(evento.target.value)
   }
   const onClickExportar = function () {
-    html2canvas(document.querySelector("#meme")).then(canvas => {
+    html2canvas(document.querySelector("#meme"),{useCORS: true}).then(canvas => {
       var img = canvas.toDataURL("image/png");
       var link = document.createElement('a');
       link.download = 'meme.png';
@@ -44,7 +44,7 @@ function App() {
         <button onClick={onClickExportar}>Exportar</button>
       </div>
       <div className="meme" id="meme">
-        <img src={`./img/${image}.jpg`} alt="Selecciona una imagen"/ >
+        <img src={`./img/${image}.jpg`} alt="Selecciona una imagen" />
         <div id="memeText">
           <span id="line1">{linea1}</span><br />
           <span id="line2">{linea2}</span>
